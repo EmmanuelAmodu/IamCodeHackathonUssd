@@ -16,8 +16,8 @@ app.get('/ussd', (req, res) => {
     
     console.log(req.query.MSISDN, req.query.input);
     if(req.query.userid == "dsvrt1" & req.query.password == "1trvsd1") {
-        if(req.query.input == "6820") req.query.input = "*6820";
-        var url = `http://localhost:8090/ussd?msisdn=${req.query.MSISDN}&data=${req.query.input}&service=*6820#`;
+        if(req.query.input == "123") req.query.input = "*123";
+        var url = `http://localhost:8090/ussd?msisdn=${req.query.MSISDN}&data=${req.query.input}&service=*123#`;
         request.get(url, (err, httpResponse, body) => {
             if(!err){
                 var response = {
@@ -44,9 +44,9 @@ app.get('/ussd', (req, res) => {
 app.post('', (req, res) => {
     const data = req.body,
     language = data.data.split("*")[2],
-    url = `http://69.16.239.82:7070/DSIMS/home/report?reporter=${data.msisdn}&primaryLanguage=${language}&report=${data.objData.incidence}&reporterRelationship=${data.objData.anonymous}&address=${data.objData.Address}&victimSex=${data.objData.Gender}&location=${data.objData.location}`;
+    url = `https://vuefy.com/api/ussd/report?reporter=${data.msisdn}&primaryLanguage=${language}&report=${data.objData.incidence}&reporterRelationship=${data.objData.anonymous}&address=${data.objData.Address}&victimSex=${data.objData.Gender}&location=${data.objData.location}`;
 
-    request.get(url, (err, httpResponse, body) => {
+    request.post(url, (err, httpResponse, body) => {
         console.log(body, data, httpResponse.statusCode);
     });
     res.sendStatus(200);

@@ -11,14 +11,14 @@ MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
     console.log("Connected correctly to db");
 
-    const files = fs.readdirSync(rootPath + "database");
+    const Folder = rootPath + "database";
+    const files = fs.readdirSync(Folder);
     console.log(files);
 
     files.forEach(file => {
-      if(file.indexOf('.json') > -1) {
-        let dbName = file.replace('.json', '');
+      if(file.indexOf('.json') == 1) {
         let contentRaw = fs.readFileSync(`${Folder}/${file}`, 'utf8');
-        db.collection(dbName).insertMany(JSON.parse(contentRaw));
+        db.collection(file.replace('.json', '')).insertMany(JSON.parse(contentRaw));
       }
     });
 

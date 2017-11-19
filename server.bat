@@ -1,2 +1,2 @@
 node scripts\server.js
-node scripts\dsvrt-handler.js
+node scripts\nigeria-handler.js

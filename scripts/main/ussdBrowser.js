@@ -32,6 +32,7 @@ module.exports = function(req, res){
                 //if not *123 then runs this instead
                 //read user data
                 db.collection('session').findOne({_id: req.query.msisdn}).then(userData => {
+                    console.log(userData);
                     controls.checkForNegotiationState().then(d => {
                         console.log(d, 41);
                         if(d) controls.negotiate();

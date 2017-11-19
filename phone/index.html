@@ -99,7 +99,6 @@
 		res = JSON.parse(res);
 		var result = res.output;
 		console.log(result);
-		result = result.split(".,").join("\n");
 		screen.innerText = result;
 	}
 
@@ -117,13 +116,16 @@
 	    if (value) {
 	      dail += value;
 	      subcreen.value = dail;
-	    } else {
-	      url += dail;
+	    } else if ( e.target.matches('.enter') ) {
+	      url += subcreen.value;
 	      httpGetAsync(url, showResult);
 	      dail = "";
-	      subcreen.value = dail;
-	      url = "../ussd?msisdn=07033705815&service*123&data=";
-	    }
+				subcreen.value = dail;
+				console.log(url);
+	      url = "http://localhost:8090/ussd?msisdn=07033705815&data=";
+	    } else if ( e.target.matches('.cancel') ) {
+				subcreen.value = dail =  '';
+			}
 	}
 
 	button.forEach(function(el){

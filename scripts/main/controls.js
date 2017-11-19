@@ -27,6 +27,7 @@ var controls = (function(){
         },
     
         "shortCodeOnce": async function(shortCode){
+            console.log();
             var userData = await this.getUserData();
             userData && userData["data"] ? 
                 shortCode = "*" + (userData["data"].split("*"))[1] :
@@ -170,6 +171,7 @@ var controls = (function(){
         },
     
         "getMenu": async function (ussdCode){
+            console.log(ussdCode);
             var menu = await this.db.collection("nigeria").findOne({_id: ussdCode});
             if (!menu) {
                 this.res.status(404);
@@ -278,7 +280,7 @@ var controls = (function(){
         },
 
         "getFinalMessage": async function(objData){
-            let messages = await this.db.collection('menus').findOne({_id: 'TerminateMessageNigeria'});
+            let messages = await this.db.collection('nigeria').findOne({_id: 'TerminateMessageNigeria'});
             return messages.content[objData.location - 1][objData.incidence - 1];
         },
     
