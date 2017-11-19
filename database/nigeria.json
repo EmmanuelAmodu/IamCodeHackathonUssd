@@ -1,7 +1,7 @@
 [
     {
         "_id": "*123",
-        "output":"\nSelect Language \n1. English \n2. Yoruba \n3. Igbo \n4. Hausa \n5. Pidgin",
+        "output":"\nSelect Language \n1. English \n2. Yoruba \n3. Igbo \n4. Hausa \n4: Trafficing \n5. Pidgin",
         "return":"option",
         "destination":"#",
         "endpoint":0
@@ -9,7 +9,7 @@
 
     {
         "_id": "*123*1",
-        "output":"Select Incidence Type \n1. Rape \n2. Child Abuse \n3. Domestic Violence \n00. Main Menu",
+        "output":"Select Incidence Type \n1. Rape \n2. Child Abuse \n3. Domestic Violence \n4: Trafficing \n00. Main Menu",
         "name":"incidence",
         "return":"text",
         "destination":"*123*1*Step1",

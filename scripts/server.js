@@ -3,7 +3,7 @@ var path = require('path');
 var rootPath = path.normalize(__dirname + "/../");
 var app = express();
 var bodyParser = require('body-parser');
-var ussdBrowser = require('./service/ussdBrowser');
+var ussdBrowser = require('./main/ussdBrowser');
 
 app.use(bodyParser.urlencoded({extented: true}));
 app.use(bodyParser.json({extended: true}));

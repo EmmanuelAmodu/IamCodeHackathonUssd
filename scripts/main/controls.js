@@ -170,7 +170,7 @@ var controls = (function(){
         },
     
         "getMenu": async function (ussdCode){
-            var menu = await this.db.collection("menus").findOne({_id: ussdCode});
+            var menu = await this.db.collection("nigeria").findOne({_id: ussdCode});
             if (!menu) {
                 this.res.status(404);
                 this.db.collection('session').remove({_id: this.req.query.msisdn});
