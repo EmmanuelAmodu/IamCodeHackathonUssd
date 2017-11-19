@@ -1,0 +1,446 @@
+[
+    {
+        "_id": "*123",
+        "output":"\nSelect Language \n1. English \n2. Yoruba \n3. Igbo \n4. Hausa \n5. Pidgin",
+        "return":"option",
+        "destination":"#",
+        "endpoint":0
+    },
+
+    {
+        "_id": "*123*1",
+        "output":"Select Incidence Type \n1. Rape \n2. Child Abuse \n3. Domestic Violence \n00. Main Menu",
+        "name":"incidence",
+        "return":"text",
+        "destination":"*123*1*Step1",
+        "endpoint":0
+    },
+
+    {
+        "_id": "*123*1*Step1",
+        "output":"Are you a victim or an eye witness \n1. Victim \n2. Eye witness",
+        "name":"anonymous",
+        "return":"text",
+        "destination":"*123*1*Step2",
+        "endpoint":0
+    },
+    
+    {
+        "_id": "*123*1*Step2",
+        "output":"Please Enter House Address of incidence",
+        "name":"Address",
+        "return":"text",
+        "destination":"*123*1*Step3",
+        "endpoint":0
+    },
+
+    {
+        "_id": "*123*1*Step3",
+        "output":"Are You Male or Female Type \n1. Female \n2. Male \n00. Main Menu",
+        "name":"Gender",
+        "return":"text",
+        "destination":"*123*1*Step4",
+        "endpoint":0
+    },
+    
+    {
+        "_id": "*123*1*Step4",
+        "dataH": "Select Your local Government Area\n",
+        "dataBD":[
+            "1. Agege\n2. Ajeromi Ifelodun\n3. Alimosho\n4. Amuwo Odofin\n5. Apapa\n6. Badagry\n0. Previous Menu\n**. Next", 
+            "8. Eti Osa\n9. Ibeju Lekki\n10. Ifako Ijaye\n11. Ikeja\n12. Ikorodu\n13. Kosofe\n14. Lagos Island\n0. Previous Menu\n**. Next", 
+            "15. Lagos Mainland\n16. Mushin\n17. Ojo\n18. Oshodi Isolo\n19. Shomolu\n20. Surulere\n0. Previous Menu\n00. Main Menu"
+        ],
+        "name":"location",
+        "return":"text",
+        "previous": "*123*1*Step3",
+        "current":"*123*1*Step4",
+        "destination":"terminateReportEnglish",
+        "endpoint":0
+    },
+    
+    {
+        "_id": "terminateReportEnglish",
+        "url":"http://sdp.nok360.com:7070/DSVRT/ReportUssd?sender=08167024199&key=report&value=1,2",
+        "handlerPort":"7089",
+        "params":"",
+        "method":"POST",
+        "data":{
+            "endpoint":1,
+            "output":"Thank you for reporting this incidence We believe your report. "
+        },
+        "endpoint":1
+    },
+
+    {
+        "_id": "*123*2",
+        "output":"Te numba isele \n1. Ifipabanilopo \n2. Ifiyaje omode \n3. Ibanija seni lese \n4. Osojumi \n00. Pada si Ibere",
+        "name":"incidence",
+        "return":"text",
+        "destination":"*123*2*Step1",
+        "endpoint":0
+    },
+    
+    {
+        "_id": "*123*2*Step1",
+        "output":"Se iwo ni njiya abi osoju e \n1. Njiya \n2. Osojumi",
+        "name":"anonymous",
+        "return":"text",
+        "destination":"*123*2*Step2",
+        "endpoint":0
+    },
+    
+    {
+        "_id": "*123*2*Step2",
+        "output":"Te adiresi isele pelu isele",
+        "name":"Address",
+        "return":"text",
+        "destination":"*123*2*Step3",
+        "endpoint":0
+    },
+
+    {
+        "_id": "*123*2*Step3",
+        "output":"Se Okunrin abi obinrin ni e Type \n1. Obinrin \n2. Okunrin 00. Pada si Ibere",
+        "name":"Gender",
+        "return":"text",
+        "destination":"*123*2*Step4",
+        "endpoint":0
+    },
+
+    {
+        "_id":"*123*2*Step4",
+        "dataH": "Yan Ipinle ijoba Agbegbe re\n",
+        "dataBD":[
+            "1. Agege\n2. Ajeromi Ifelodun\n3. Alimosho\n4. Amuwo Odofin\n5. Apapa\n6. Badagry\n0. Previous Menu\n**. Next", 
+            "8. Eti Osa\n9. Ibeju Lekki\n10. Ifako Ijaye\n11. Ikeja\n12. Ikorodu\n13. Kosofe\n14. Lagos Island\n0. Previous Menu\n**. Next", 
+            "15. Lagos Mainland\n16. Mushin\n17. Ojo\n18. Oshodi Isolo\n19. Shomolu\n20. Surulere\n0. Previous Menu\n00. Main Menu"
+        ],
+        "name":"location",
+        "return":"text",
+        "previous": "*123*2*Step3",
+        "current":"*123*2*Step4",
+        "destination":"terminateReportYoruba",
+        "endpoint":0
+    },
+
+    {
+        "_id": "terminateReportYoruba",
+        "url":"http://sdp.nok360.com:7070/DSVRT/ReportUssd?sender=08167024199&key=report&value=1,2",
+        "handlerPort":"7089",
+        "params":"",
+        "method":"POST",
+        "data":{
+            "endpoint":1,
+            "output":"A dupe fun iroyin isele yii. A gbagbo ijabo re. Ranti pe kii se ebi re. A yoo pada si o laipe"
+        },
+        "endpoint":1
+    },
+
+    {
+        "_id": "*123*3",
+        "output":"Horo Udi Mmetuta \n1. Dina n ike \n2. Umuaka \n3. Ike n wlo \n4. Anya aka \n00. Nchikota nhoro",
+        "name":"incidence",
+        "return":"text",
+        "destination":"*123*3*Step1",
+        "endpoint":0
+    },
+    
+    {
+        "_id": "*123*3*Step1",
+        "output":"I bu onye aja ma o bu onye akaebe anya \n1. Oria \n2. anya aka",
+        "name":"anonymous",
+        "return":"text",
+        "destination":"*123*3*Step2",
+        "endpoint":0
+    },
+    
+    {
+        "_id": "*123*3*Step2",
+        "output":"Biko tinye adreesi na mpaghara mpaghara ebe a",
+        "name":"Address",
+        "return":"text",
+        "destination":"*123*3*Step3",
+        "endpoint":0
+    },
+
+    {
+        "_id": "*123*3*Step3",
+        "output":"I bu nwoke ma o bu nwanyi. Udi \n1. Nwanyi \n2. Nwoke 00. Nchikota nhoro",
+        "name":"Gender",
+        "return":"text",
+        "destination":"terminateReportIgbo",
+        "endpoint":0
+    },
+    
+    {
+        "_id": "*123*3*Step4",
+        "dataH": "Biko Tinye Adreesi na mpaghara nke onodu\n",
+        "dataBD":[
+            "1. Agege\n2. Ajeromi Ifelodun\n3. Alimosho\n4. Amuwo Odofin\n5. Apapa\n6. Badagry\n0. Previous Menu\n**. Next", 
+            "8. Eti Osa\n9. Ibeju Lekki\n10. Ifako Ijaye\n11. Ikeja\n12. Ikorodu\n13. Kosofe\n14. Lagos Island\n0. Previous Menu\n**. Next", 
+            "15. Lagos Mainland\n16. Mushin\n17. Ojo\n18. Oshodi Isolo\n19. Shomolu\n20. Surulere\n0. Previous Menu\n00. Main Menu"
+        ],
+        "name":"location",
+        "return":"text",
+        "previous": "*123*3*Step3",
+        "current":"*123*3*Step4",
+        "destination":"terminateReportYoruba",
+        "endpoint":0
+    },
+    
+    {
+        "_id": "terminateReportIgbo",
+        "url":"http://sdp.nok360.com:7070/DSVRT/ReportUssd?sender=08167024199&key=report&value=1,2",
+        "handlerPort":"7089",
+        "params":"",
+        "method":"POST",
+        "data":{
+            "endpoint":1,
+            "output":"Daalu maka iko akuko a. Anyi kwenyere akuko gi. Cheta na o bughi gi kpatara ya. Anyi ga-alaghachikwute gi n'oge na-adighi anya"
+        },
+        "endpoint":1
+    },
+
+    {
+        "_id": "*123*4",
+        "output":"Zabi Abin da zai faru Rubuta \n1. Fyade \n2. Cin zarafin yara \n3. Tashin hankaline gida \n4. mashaidiya \n00. Main Menu",
+        "name":"incidence",
+        "return":"text",
+        "destination":"*123*4*Step1",
+        "endpoint":0
+    },
+    
+    {
+        "_id": "*123*4*Step1",
+        "output":"Shin kai ne wanda aka azabtar ko shaidar ido \n1. wanda aka azabtar \n2. mashaidiya",
+        "name":"anonymous",
+        "return":"text",
+        "destination":"*123*4*Step2",
+        "endpoint":0
+    },
+    
+    {
+        "_id": "*123*4*Step2",
+        "output":"Da fatan a shigar da adireshi da Gundumar Govt na tasiri",
+        "name":"Address",
+        "return":"text",
+        "destination":"*123*4*Step3",
+        "endpoint":0
+    },
+    
+    {
+        "_id": "*123*4*Step3",
+        "output":"Shin kai namiji ne ko mace Rubuta \n1. na mata \n2. namiji \n00. Main Menu",
+        "name":"Gender",
+        "return":"text",
+        "destination":"*123*4*Step4",
+        "endpoint":0
+    },
+    
+    {
+        "_id": "*123*4*Step4",
+        "dataH": "Da fatan a shigar da adireshi da kuma gundumomi na yankin\n",
+        "dataBD":[
+            "1. Agege\n2. Ajeromi Ifelodun\n3. Alimosho\n4. Amuwo Odofin\n5. Apapa\n6. Badagry\n0. Previous Menu\n**. Next", 
+            "8. Eti Osa\n9. Ibeju Lekki\n10. Ifako Ijaye\n11. Ikeja\n12. Ikorodu\n13. Kosofe\n14. Lagos Island\n0. Previous Menu\n**. Next", 
+            "15. Lagos Mainland\n16. Mushin\n17. Ojo\n18. Oshodi Isolo\n19. Shomolu\n20. Surulere\n0. Previous Menu\n00. Main Menu"
+        ],
+        "name":"location",
+        "return":"text",
+        "previous": "*123*4*Step3",
+        "current":"*123*4*Step4",
+        "destination":"terminateReportHausa",
+        "endpoint":0
+    },
+    
+    {
+        "_id": "terminateReportHausa",
+        "url":"http://sdp.nok360.com:7070/DSVRT/ReportUssd?sender=08167024199&key=report&value=1,2",
+        "handlerPort":"7089",
+        "params":"",
+        "method":"POST",
+        "data":{
+            "endpoint":1,
+            "output":"Na gode don bayar da rahoton wannan lamarin. Munyi imani da rahotonku. Ka tuna ba laifi ba ne. Za mu dawo gare ku jim kadan"
+        },
+        "endpoint":1
+    },
+
+    {
+        "_id": "*123*5",
+        "output":"Select Wetin happen \n1. Tear \n2. Yab pike \n3. No dey beat \n4. Eye Witness \n00. Main Menu",
+        "name":"incidence",
+        "return":"text",
+        "destination":"*123*1*Step1",
+        "endpoint":0
+    },
+    
+    {
+        "_id": "*123*5*Step1",
+        "output":"Na you be victim or eye witness \n1. Victim \n2. Eye witness",
+        "name":"anonymous",
+        "return":"text",
+        "destination":"*123*1*Step2",
+        "endpoint":0
+    },
+    
+    {
+        "_id": "*123*5*Step2",
+        "output":"I beg write Address and Local Govt area where d thing happen",
+        "name":"Address",
+        "return":"text",
+        "destination":"*123*1*Step3",
+        "endpoint":0
+    },
+    
+    {
+        "_id": "*123*5*Step3",
+        "output":"You be man or woman Type \n1. Woman \n2. Man \n00. Main Menu",
+        "name":"Gender",
+        "return":"text",
+        "destination":"*123*5*Step4",
+        "endpoint":0
+    },
+    
+    {
+        "_id": "*123*5*Step4",
+        "dataH": "I beg enter address where the thing happen\n",
+        "dataBD":[
+            "1. Agege\n2. Ajeromi Ifelodun\n3. Alimosho\n4. Amuwo Odofin\n5. Apapa\n6. Badagry\n0. Previous Menu\n**. Next", 
+            "8. Eti Osa\n9. Ibeju Lekki\n10. Ifako Ijaye\n11. Ikeja\n12. Ikorodu\n13. Kosofe\n14. Lagos Island\n0. Previous Menu\n**. Next", 
+            "15. Lagos Mainland\n16. Mushin\n17. Ojo\n18. Oshodi Isolo\n19. Shomolu\n20. Surulere\n0. Previous Menu\n00. Main Menu"
+        ],
+        "name":"location",
+        "return":"text",
+        "previous": "*123*5*Step3",
+        "current":"*123*5*Step4",
+        "destination":"terminateReportPidgin",
+        "endpoint":0
+    },
+    
+    {
+        "_id": "terminateReportPidgin",
+        "url":"http://sdp.nok360.com:7070/DSVRT/ReportUssd?sender=08167024199&key=report&value=1,2",
+        "handlerPort":"7089",
+        "params":"",
+        "method":"POST",
+        "data":{
+            "endpoint":1,
+            "output":"Thank you for reporting this Incidence, Do not get intimidated we will get back to you shortly. Remember it is not your fault"
+        },
+        "endpoint":1
+    },
+
+    {
+        "_id": "TerminateMessageNigeria",
+        "content": [
+            [
+                "Please visit the Sango PHC at 2 Balogun Road, Pen Cinema Agege and Isokoko Police Station. If recent, Visit within 48 hours before taking a bath.", 
+                "Please take pictures and preserve any evidence. Please visit Agege Family Social Service at Agege LGA office by Pen Cinema, Maternity Registry, Agege", 
+                "Please take pictures and preserve any evidence. Please visit the Sango PHC at 2 Balogun Road, Pen Cinema Agege and Isokoko Police Station"
+            ],
+            [
+                "Please visit the Akere PHC at 104 Baale Street, Olodi Apapa and Festac Police Station. If recent, Visit within 48 hours before taking a bath",
+                "Please take pictures and preserve any evidence. Please visit Ajegunle Family Social Service at Ajeromi Ifelodun LCDA Area Office, Ajeromi",
+                "Please take pictures and preserve any evidence. Please visit the Akere PHC at 104 Baale Street, Olodi Apapa and Festac Police Station"
+            ],
+            [
+                "Please visit the Akowonjo PHC at 100 Akowonji Road, Vulcanizer Bus Stop and Ikotun Police Station. If recent, Visit within 48 hours before taking a bath",
+                "Please take pictures and preserve any evidence. Please visit Alimosho Family Social Service at Igando Ikotun LCDA Secretariat, Ikotun",
+                "Please take pictures and preserve any evidence. Please visit the Akowonjo PHC at 100 Akowonji Road, Vulcanizer Bus Stop and Ikotun Police Station"
+            ],
+            [
+                "Please visit the Festac PHC at 41 Road Festac Town, Amuwo Odofin and Festac Police Station. If recent, Visit within 48 hours before taking a bath",
+                "Please take pictures and preserve any evidence. Please visit Child Protection Unit at Room 109, Block 18, Ministry of Youth and Social Development",
+                "Please take pictures and preserve any evidence. Please visit the Festac PHC at 41 Road Festac Town, Amuwo Odofin and Festac Police Station"
+            ],
+            [
+                "Please visit the Ijora Oloye PHC at 47 Ijora Oloye Street, Ijora 7UP and Festac Police Station. If recent, Visit within 48 hours before taking a bath",
+                "Please take pictures and preserve any evidence. Please visit Child Protection Unit at Room 109, Block 18, Ministry of Youth and Social Development",
+                "Please take pictures and preserve any evidence. Please visit the Ijora Oloye PHC at 47 Ijora Oloye Street, Ijora 7UP and Festac Police Station"
+            ],
+            [
+                "Please visit the Ajara PHC at Ajara Mangoro, Ajara Badagry and Badagry Police Station. If recent, Visit within 48 hours before taking a bath",
+                "Please take pictures and preserve any evidence. Please visit Badagry Family Social Service at Works yard, PWD, Hospital Road, Badagry",
+                "Please take pictures and preserve any evidence. Please visit the Ajara PHC at Ajara Mangoro, Ajara Badagry and Badagry police Station"
+            ],
+            [
+                "Please visit the Epe PHC at Along Ijebu Ode Road, Beside Cemetry, Epe and Ajah Police Station. If recent, Visit within 48 hours before taking a bath. ",
+                "Please take pictures and preserve any evidence. Please visit Epe Family Social Service at GRA Oke Oyingbo, Behind the Magistrate Court, Epe.",
+                "Please take pictures and preserve any evidence. Please visit the Epe PHC at Along Ijebu Ode Road, Beside Cemetry, Epe and Ajah Police Station."
+            ],
+            [
+                "Please visit the Ikate PHC at 5 Ikate Elegushi Road and Ajah Police Station. If recent please visit before 48 hours within taking a bath.",
+                "Please take pictures and preserve any evidence. Please visit Eti-osa Family Social Service at Eti Osa Local Govt. Area Office.",
+                "Please take pictures and preserve any evidence. Please visit the Ikate PHC at 5 Ikate Elegushi Road and Ajah Police Station."
+            ],
+            [
+                "Please visit the Ibeju PHC at Opposite Subeb Office, Ibeju Agbe Community and Ajah Police Station. If recent, Visit within 48 hours before taking a bath.",
+                "Please take pictures and preserve any evidence. Please visit Eti-osa Family Social Service at Eti Osa Local Govt. Area Office.",
+                "Please take pictures and preserve any evidence. Please visit the Ibeju PHC at Opposite Subeb Office, Ibeju Agbe Community and Ajah Police Station."
+            ],
+            [
+                "Please visit the Ifako PHC at African Church Road, College Busstop, Ifako and Alakuko Police Station. If recent, Visit within 48 hours before taking a bath.",
+                "Please take pictures and preserve any evidence. Please visit Ojokoro Family Social Service at Ijaiye Ojokoro Local Govt Area Office",
+                "Please take pictures and preserve any evidence. Please visit the Ifako PHC at African Church Road, College Busstop, Ifako and Alakuko Police Station."
+            ],
+            [
+                "Please visit the Mirabel Center at LASUTH, GRA and Area F Police Station GRA. If recent please visit within 48 hours without taking a bath.",
+                "Please take pictures and preserve any evidence. Please visit Ikeja Family Social Service at Opposite Pilgrim Board, Old Secretariat, Ikeja",
+                "Please take pictures and preserve any evidence. Please visit the Mirabel Center at LASUTH GRA and Area F Police Station GRA Ikeja."
+            ],
+            [
+                "Please visit the Ikorodu/ITA Elewa PHC at 2-5 Oriwu Road Ikorodu and Ikorodu Police Station. If recent, Visit within 48 hours before taking a bath.",
+                "Please take pictures and preserve any evidence. Please visit Ikorodu Family Social Service at 2 Ojogbe Road, Along Igbogbo Road, Off Ebute/Ikorodu General Hospital, Ikorodu",
+                "Please take pictures and preserve any evidence. Please visit the Ikorodu/ITA Elewa PHC at 2-5 Oriwu Road Ikorodu and Ikorodu Police Station."
+            ],
+            [
+                "Please visit the Ogudu PHC at 175 Ogudu Road, Ogudu and Ketu Police Station. If recent, Visit within 48 hours before taking a bath.",
+                "Please take pictures and preserve any evidence. Please visit Kosofe Family Social Service at Kosofe Local Govt Area Office, Ogudu",
+                "Please take pictures and preserve any evidence. Please visit the Ogudu PHC at 175 Ogudu Road, Ogudu and Ketu Police Station."
+            ],
+            [
+                "Please visit the Iga Iduganran (Zenith) PHC at Along Adeniji Adele Road and Adeniji Adele Police Station Lagos. If recent, Visit within 48 hours before taking a bath.",
+                "Please take pictures and preserve any evidence. Please visit Lagos Family Social Service at 7 King George V Avenue, Opposite Onikan Health Center.",
+                "Please take pictures and preserve any evidence. Please visit the Iga Iduganran (Zenith) PHC at Along Adeniji Adele Road, and Adeniji Adele Police Station Lagos"
+            ],
+            [
+                "Please visit the WARIF at 6 Turton Street, Yaba and Adeniji Adele Police Station Lagos. If recent, Visit within 48 hours before taking a bath.",
+                "Please take pictures and preserve any evidence. Please visit Child Protection Unit at Room 109, Block 18, Ministry of Youth and Social Development",
+                "Please take pictures and preserve any evidence. Please visit the WARIF at 6 Turton Street, Yaba and Adeniji Adele Police Station Lagos."
+            ],
+            [
+                "Please visit the Palm Avenue PHC at 34 Palm Avenue, Mushin and Ilupeju Police Station. If recent, Visit within 48 hours before taking a bath.",
+                "Please take pictures and preserve any evidence. Please visit Mushin/Isolo Family Social Service at Isolo LCDA Secretariat, Isolo way, Aswani",
+                "Please take pictures and preserve any evidence. Please visit the Palm Avenue PHC at 34 Palm Avenue, Mushin and Ilupeju Police Station."
+            ],
+            [
+                "Please visit the Ojo PHC at Rest House Road, Beside Town Hall, Ojo and Ikotun police Station. If recent, Visit within 48 hours before taking a bath.",
+                "Please take pictures and preserve any evidence. Please visit Ojo Family Social Service at Ojo Local Govt Secretariat, Ojo",
+                "Please take pictures and preserve any evidence. Please visit the Ojo PHC at Rest House Road, Beside Town Hall, Ojo and Ikotun police Station."
+            ],
+            [
+                "Please visit the Oshodi PHC at 4 Ogunlana Street, Off Oshodi Road, Behind Post Office and Area F Police, GRA Ikeja. If recent, Visit within 48 hours before taking a bath.",
+                "Please take pictures and preserve any evidence. Please visit Oshodi Family Social Service at Oshodi Local Govt, 4-6 Oyetayo Street, Oshodi",
+                "Please take pictures and preserve any evidence. Please visit the Oshodi PHC at 4 Ogunlana Street, Off Oshodi Road, Behind Post Office and Area F Police, GRA Ikeja"
+            ],
+            [
+                "Please visit the Shomolu PHC at 33 Ibunkun-Olu Street, Akoka and Ketu Police Station. If recent, Visit within 48 hours before taking a bath.",
+                "Please take pictures and preserve any evidence. Please visit Shomolu Family Social Service at Shomolu Local Govt Area Office, Opposite Jolad Hospital, New Garage",
+                "Please take pictures and preserve any evidence. Please visit the Shomolu PHC at 33 Ibunkun-Olu Street, Akoka and Ketu Police Station."
+            ],
+            [
+                "Please visit the Akerele PHC at 35A Akerele Street, Surulere and Festac Police Station. If recent, Visit within 48 hours before taking a bath.",
+                "Please take pictures and preserve any evidence. Please visit Surulere Family Social Service at Surulere Local Government",
+                "Please take pictures and preserve any evidence. Please visit the Akerele PHC at 35A Akerele Street, Surulere and Festac Police Station."
+            ]
+        ]
+    },
+    
+    {
+        "_id":  "*123*10",
+        "output": "http://sdp.nok360.com:7070/DSVRT/ReportUssd?sender=08167024199&key=report&value=1,2",
+		"negotiate" : true
+    }
+]

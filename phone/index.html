@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.phone {
+		  position: relative;
+		  top: 1%;
+		  left: 0;
+		  right: 0;
+		  margin: 0 auto;
+		  min-width: 400px;
+		  max-width: 30%; 
+		}
+
+		.screen {
+		  position: relative;
+		  top: 0px;
+		  left: 0;
+		  right: 0;
+		  width: 100%;
+		  border: 5px solid #eee;
+		  height: 200px;
+		}
+
+		.subscreen {
+		  position: relative;
+		  top: 0px;
+		  left: 0;
+		  right: 0;
+		  width: 100%;
+		  border-top: 5px solid #eee;
+		  height: 50px;
+		}
+
+		.screen > p {
+		  height: 136px;
+		  text-align: center;
+		}
+
+		input {
+		  width: 100%;
+		  height: 25px;
+		  border: none;
+		  text-align: center;
+		}
+
+		.buttons {
+		  position: relative;
+		  left: 1.5%;
+		  right: 0;
+		  width: 90%;
+		  margin: auto;
+		}
+
+		.buttons button {
+		  width: 32.5%;
+		  height: 50px;
+		}
+
+		.action {
+		  width: 49% !important;
+		}
+	</style>
+</head>
+<body>
+	<div class="phone">
+	    <div class="screen">
+		    <p></p>
+		    <div class="subscreen">
+		      	<input type="text"/>
+		    </div>
+		</div>
+		<div class="buttons">
+		    <button class="action enter">Enter</button>
+		    <button class="action cancel">Cancel</button>
+		    <button data-key="1">1</button>
+		    <button data-key="2">2</button>
+		    <button data-key="3">3</button>
+		    <button data-key="4">4</button>
+		    <button data-key="5">5</button>
+		    <button data-key="6">6</button>
+		    <button data-key="7">7</button>
+		    <button data-key="8">8</button>
+		    <button data-key="9">9</button>
+		    <button data-key="*">*</button>
+		    <button data-key="0">0</button>
+		    <button data-key="#">#</button>
+		</div>
+	</div>
+<script type="text/javascript">
+	var dail = "";
+	var url = "http://localhost:8090/ussd?msisdn=07033705815&data=";
+	var button = document.querySelectorAll('button');
+	var screen = document.querySelector(".screen > p");
+	var subcreen = document.querySelector(".subscreen input");
+
+	var showResult = function (res) {
+		res = JSON.parse(res);
+		var result = res.output;
+		console.log(result);
+		result = result.split(".,").join("\n");
+		screen.innerText = result;
+	}
+
+	var httpGetAsync = function (theUrl, callback) {
+	    var xmlHttp = new XMLHttpRequest();
+	    xmlHttp.onreadystatechange = function() { 
+	        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) callback(xmlHttp.responseText);
+	    }
+	    xmlHttp.open("GET", theUrl, true);
+	    xmlHttp.send(null);
+	}
+
+	var buttonEvents = function(e){
+	    var value = this.dataset.key;
+	    if (value) {
+	      dail += value;
+	      subcreen.value = dail;
+	    } else {
+	      url += dail;
+	      httpGetAsync(url, showResult);
+	      dail = "";
+	      subcreen.value = dail;
+	      url = "../ussd?msisdn=07033705815&service*123&data=";
+	    }
+	}
+
+	button.forEach(function(el){
+		el.addEventListener('click', buttonEvents);
+	});
+</script>
+</body>
+</html>

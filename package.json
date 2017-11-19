@@ -1,0 +1,28 @@
+{
+  "name": "ussd",
+  "version": "1.1.2",
+  "description": "ussd menu manager",
+  "main": "index.js",
+  "repository": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ussd"
+  ],
+  "author": "Emmanuel Amodu Tivas Tech",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.1",
+    "forever": "^0.15.3",
+    "jsoneditor": "^5.9.6",
+    "mongodb": "^2.2.33",
+    "node-cron": "^1.2.1",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {},
+  "presets": [
+    "env"
+  ]
+}
