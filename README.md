@@ -1,2 +1,2 @@
 # USSDMenuBrowser
-USSD Menu Browser; Developed for Tivas Technologies.
+USSD Menu Browser; Developed for #Iamthecode Hackathon.
